@@ -10,7 +10,7 @@ Currently it supports
 
 # I want other fonts!
 
-You can grab any MS-DOS bitmap font from web and try it.
+You can grab any MS-DOS bitmap font from web and give it a try. (You should edit dkb2bmp.py in that case)
 
 Or, you can try fonts in this repository: https://github.com/perillamint/dkbfnts/
 
