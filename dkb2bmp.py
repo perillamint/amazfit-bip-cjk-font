@@ -111,7 +111,7 @@ class Hangul844Font:
             jongIdx = char - 0x11A8 + 1
         elif char >= 0x3131 and char <= 0x314E:
             compatChoIdxLookup = [1, 2, 0, 3, 0, 0, 4, 5, 6, 0, 0, 0, 0 ,0, 0, 0, 7, 8, 9, 0, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
-            block = compatChoIdxLookup[char - 0x3131]
+            choIdx = compatChoIdxLookup[char - 0x3131]
         elif char >= 0x314F and char <= 0x3163:
             jungIdx = char - 0x314F + 1
         elif char >= 0xAC00 and char <= 0xD7A3:
@@ -184,6 +184,10 @@ renderInRange((0x0000, 0x007F), latinFontRenderer)
 renderInRange((0x1100, 0x1112), hangulFontRenderer)
 renderInRange((0x1161, 0x1175), hangulFontRenderer)
 renderInRange((0x11A8, 0x11C2), hangulFontRenderer)
+
+# Hangul Compat Jamo
+renderInRange((0x3131, 0x314E), hangulFontRenderer)
+renderInRange((0x314F, 0x3163), hangulFontRenderer)
 
 # Hangul Syllables
 renderInRange((0xAC00, 0xD7A3), hangulFontRenderer)
