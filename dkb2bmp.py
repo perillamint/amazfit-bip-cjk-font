@@ -109,6 +109,11 @@ class Hangul844Font:
             jungIdx = char - 0x1161 + 1
         elif char >= 0x11A8 and char <= 0x11C2:
             jongIdx = char - 0x11A8 + 1
+        elif char >= 0x3131 and char <= 0x314E:
+            compatChoIdxLookup = [1, 2, 0, 3, 0, 0, 4, 5, 6, 0, 0, 0, 0 ,0, 0, 0, 7, 8, 9, 0, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+            block = compatChoIdxLookup[char - 0x3131]
+        elif char >= 0x314F and char <= 0x3163:
+            jungIdx = char - 0x314F + 1
         elif char >= 0xAC00 and char <= 0xD7A3:
             nchr = char - 0xAC00
             choIdx = nchr // (0x0015 * 0x001C) + 1
