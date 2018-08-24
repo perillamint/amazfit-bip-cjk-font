@@ -17,3 +17,7 @@ Or, you can try fonts in this repository: https://github.com/perillamint/dkbfnts
 # TODO
 
 Source FLOSS compatible Han bitmap font and Kana bitmap font file and add support for it.
+
+# License notice
+* ttf2bmp.py - BSD 3-clause https://github.com/sukso96100/amazfit-bip-kr
+* Bm437_IBM_PS2thin4.FON - CC-BY-SA 4.0 https://int10h.org/oldschool-pc-fonts/

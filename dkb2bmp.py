@@ -17,23 +17,29 @@ def printBitmap(bitmap, x, y):
         print("\n", end='')
 
 class LatinFont:
-    def __init__(self, fntfile):
+    def __init__(self, fntfile, headersz, width, height):
         fntbin = open(fntfile, "rb")
+        fntbin.seek(headersz, 0)
+
+        self._byteWidth = (width + 7) // 8
+        self._width = width
+        self._height = height
         self._fntrom = [None] * 256
 
         for i in range(0, 256):
-            self._fntrom[i] = self.grabChar(fntbin)
+            self._fntrom[i] = self.grabChar(width, height, fntbin)
 
-    def grabChar(self, fntbin):
-        fnt = [None] * 16
-        for i in range(0, 16):
+    def grabChar(self, width, height, fntbin):
+        byteWidth = (width + 7) // 8
+        fnt = [None] * byteWidth * height
+        for i in range(0, byteWidth * height):
             fnt[i] = fntbin.read(1)[0]
 
         return fnt
 
     def renderChar(self, char):
-        bitmap = [0x00] * 16
-        for i in range(0, 16):
+        bitmap = [0x00] * self._byteWidth * self._height
+        for i in range(0, self._byteWidth * self._height):
             bitmap[i] |= self._fntrom[char][i]
 
         return bitmap
@@ -44,7 +50,7 @@ class LatinFont:
         bitmap = self.renderChar(char)
 
         for i in range(0, 16):
-            for j in range(0, 8):
+            for j in range(0, self._width):
                 pixelpt = i * 8 + j
                 fntByte = bitmap[pixelpt // 8]
                 fntBit = (fntByte << (pixelpt % 8)) & 0x80
@@ -175,7 +181,8 @@ def renderInRange(charRange, fontRenderer):
         image.save("{}{:04x}4.bmp".format('./bmp/', i), "bmp")
 
 hangulFontRenderer = Hangul844Font("./H04.FNT")
-latinFontRenderer = LatinFont("./VGA-ROM.F16")
+#latinFontRenderer = LatinFont("./VGA-ROM.F16", 0, 8, 16)
+latinFontRenderer = LatinFont("./Bm437_IBM_PS2thin4.FON", 1626, 8, 16)
 
 # ASCII
 renderInRange((0x0000, 0x007F), latinFontRenderer)
