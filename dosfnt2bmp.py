@@ -7,19 +7,6 @@ from latin import LatinFont
 from dkb844 import Hangul844Font
 from fontx import FontXFont
 
-def printBitmap(bitmap, x, y):
-    for i in range(0, y):
-        for j in range(0, x):
-            pixelpt = i * 16 + j
-            fntByte = bitmap[pixelpt // 8]
-            fntBit = (fntByte << (pixelpt % 8)) & 0x80
-
-            if fntBit != 0:
-                print("■", end='')
-            else:
-                print("□", end="")
-        print("\n", end='')
-
 def renderInRange(charRange, fontRenderer):
     for i in range(charRange[0], charRange[1] + 1):
         try:

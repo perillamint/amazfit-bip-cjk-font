@@ -3,6 +3,7 @@
 
 from struct import unpack, pack
 from PIL import ImageFont, ImageDraw, Image
+from printchar import printBitmap
 
 class FontXFont:
     def __init__(self, fntfile):
@@ -60,7 +61,7 @@ class FontXFont:
 
         for i in range(0, len(header.blocks)):
             blk = header.blocks[i]
-            for j in range(blk[0], blk[1]):
+            for j in range(blk[0], blk[1] + 1):
                 char = self._grabChar(header.width, header.height)
                 self._font[j] = char
 
