@@ -35,6 +35,9 @@ renderInRange((0x314F, 0x3163), hangulFontRenderer)
 # Hangul Syllables
 renderInRange((0xAC00, 0xD7A3), hangulFontRenderer)
 
+# CJK Symbols and Punctuation
+renderInRange((0x3000, 0x303F), japaneseFontRenderer)
+
 # Hiragana
 renderInRange((0x3040, 0x309F), japaneseFontRenderer)
 
