@@ -7,6 +7,7 @@ Currently it supports
 
 * Typical latin bitmap font file
 * 844 Dokkaebi font file
+* DOS/V FONTX file (Shift-JIS only -- I need ANK file to hack on it)
 
 # I want other fonts!
 
@@ -16,7 +17,13 @@ Or, you can try fonts in this repository: https://github.com/perillamint/dkbfnts
 
 # TODO
 
-Source FLOSS compatible Han bitmap font and Kana bitmap font file and add support for it.
+Source FLOSS compatible Han bitmap font file and add support for it.
+
+# Special thanks
+* [Seongik Kim](https://twitter.com/noerror_kr) for documenting 844 Johab mechanism
+* Joongtae Kim for Dokkaebi Hangul font file
+* [Elm-ChaN](http://elm-chan.org/) for documenting [DOS/V FONTX file format](http://elm-chan.org/docs/dosv/fontx_e.html)
+* [水城珠洲](http://minashiro.net/) for their [FreeDOS/V project and DOS/V font file](http://dos.minashiro.net/)
 
 # License notice
 * ttf2bmp.py - BSD 3-clause https://github.com/sukso96100/amazfit-bip-kr
