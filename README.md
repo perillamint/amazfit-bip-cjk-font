@@ -1,4 +1,7 @@
 # amazfit-bip-cjk-font
+
+![Sample render](img/example.jpg?raw=true)
+
 FontROM builder for Xiaomi Amazfit Bip
 
 This script set converts MS-DOS era bitmap font into Amazfit Bip fontROM.
