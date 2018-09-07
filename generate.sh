@@ -2,6 +2,7 @@
 
 function fontgen {
     rm -rf bmp/*.bmp
+    ./bipfont.py unpack ./vendor/Mili_chaohu.ft
     ./dosfnt2bmp.py --latin $1 --dkb844 $2 --fontx $3
     ./ttf2bmp.py
     ./bipfont.py pack $4

@@ -25,6 +25,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 """
 
+import os
 from PIL import ImageFont, ImageDraw, Image
 
 fontPath = "./NotoSansSymbols-Light.ttf"
@@ -32,12 +33,20 @@ destPath = "./bmp/"
 marginLeft = 0
 marginTop = -9
 
+bmpdir = destPath
+basefilemap = {}
+for i in os.listdir(bmpdir):
+    key = i[0:4]
+    basefilemap[key] = i
 
 def printInRange(charRange, font):
     for i in range(charRange[0], charRange[1]):
         image = Image.new('1', (16, 16), "black")
         draw = ImageDraw.Draw(image)
         draw.text((marginLeft, marginTop), chr(i), font=font, fill="white")
+        imageKey = "{:04x}".format(i)
+        if imageKey in basefilemap:
+            os.unlink("{}/{}".format(bmpdir, basefilemap[imageKey]))
         image.save("{}{:04x}4.bmp".format(destPath, i), "bmp")
 
 def printInArray(charArray, font):

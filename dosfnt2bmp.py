@@ -1,19 +1,29 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
+import os
+import sys
 import traceback
 import argparse
-import sys
 from PIL import ImageFont, ImageDraw, Image
 from latin import LatinFont
 from dkb844 import Hangul844Font
 from fontx import FontXFont
 
+bmpdir = './bmp'
+basefilemap = {}
+for i in os.listdir(bmpdir):
+    key = i[0:4]
+    basefilemap[key] = i
+
 def renderInRange(charRange, fontRenderer):
     for i in range(charRange[0], charRange[1] + 1):
         try:
             image = fontRenderer.render(i)
-            image.save("{}{:04x}4.bmp".format('./bmp/', i), "bmp")
+            imageKey = "{:04x}".format(i)
+            if imageKey in basefilemap:
+                os.unlink("{}/{}".format(bmpdir, basefilemap[imageKey]))
+            image.save("{}/{}4.bmp".format(bmpdir, imageKey), "bmp")
         except (UnicodeEncodeError, ValueError):
             print("WARN: Unsupported char 0x{:04x}".format(i))
 
@@ -46,6 +56,9 @@ renderInRange((0xAC00, 0xD7A3), hangulFontRenderer)
 
 # CJK Symbols and Punctuation
 renderInRange((0x3000, 0x303F), japaneseFontRenderer)
+
+# Letterlike symbols
+renderInRange((0x2100, 0x214F), japaneseFontRenderer)
 
 # Hiragana
 renderInRange((0x3040, 0x309F), japaneseFontRenderer)
