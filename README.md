@@ -22,6 +22,9 @@ Or, you can try fonts in this repository: https://github.com/perillamint/dkbfnts
 
 Source FLOSS compatible Han bitmap font file and add support for it.
 
+# Misc
+[폰트 롬 빌더 제작 후기 (한국어)](https://blog.quendi.moe/2018/08/31/ko-%ec%83%a4%ec%98%a4%eb%af%b8-amazfit-bip-cjk-%ed%8f%b0%ed%8a%b8%eb%a1%ac-%eb%b9%8c%eb%8d%94-%ec%a0%9c%ec%9e%91%ea%b8%b0/)
+
 # Special thanks
 * [Seongik Kim](https://twitter.com/noerror_kr) for documenting 844 Johab mechanism
 * Joongtae Kim for Dokkaebi Hangul font file
