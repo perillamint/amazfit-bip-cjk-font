@@ -28,7 +28,7 @@ SOFTWARE.
 import os
 from PIL import ImageFont, ImageDraw, Image
 
-fontPath = "./NotoSansSymbols-Light.ttf"
+fontPath = "./fonts/ttf/NotoSansSymbols-Light.ttf"
 destPath = "./bmp/"
 marginLeft = 0
 marginTop = -9
