@@ -2,6 +2,8 @@
 # -*- coding: utf-8 -*-
 
 import traceback
+import argparse
+import sys
 from PIL import ImageFont, ImageDraw, Image
 from latin import LatinFont
 from dkb844 import Hangul844Font
@@ -15,10 +17,17 @@ def renderInRange(charRange, fontRenderer):
         except (UnicodeEncodeError, ValueError):
             print("WARN: Unsupported char 0x{:04x}".format(i))
 
-hangulFontRenderer = Hangul844Font("./H04.FNT")
+parser = argparse.ArgumentParser(description='Process some integers.')
+parser.add_argument('--latin', nargs='?', help='Latin font file')
+parser.add_argument('--dkb844', nargs='?', help='Dokkaebi 844 font file')
+parser.add_argument('--fontx', nargs='?', help='FONTX font file')
+
+args = parser.parse_args()
+
+hangulFontRenderer = Hangul844Font(args.dkb844)
 #latinFontRenderer = LatinFont("./VGA-ROM.F16", 0, 8, 16)
-latinFontRenderer = LatinFont("./Bm437_IBM_PS2thin4.FON", 1626, 8, 16)
-japaneseFontRenderer = FontXFont("./04GZN16X.FNT")
+latinFontRenderer = LatinFont(args.latin, 1626, 8, 16)
+japaneseFontRenderer = FontXFont(args.fontx)
 
 # ASCII
 renderInRange((0x0000, 0x007F), latinFontRenderer)
