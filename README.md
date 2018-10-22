@@ -1,3 +1,8 @@
+# DEPRECATION NOTICE
+This project is deprecated in favor of Client-Side JS version of BIP font builder
+
+https://github.com/perillamint/amazfit-bip-fontrom-builder
+
 # amazfit-bip-cjk-font
 
 ![Sample render](img/example.jpg?raw=true)
