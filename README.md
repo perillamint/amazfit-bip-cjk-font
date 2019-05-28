@@ -37,6 +37,6 @@ Source FLOSS compatible Han bitmap font file and add support for it.
 * [水城珠洲](http://minashiro.net/) for their [FreeDOS/V project and DOS/V font file](http://dos.minashiro.net/)
 
 # License notice
-* ttf2bmp.py - BSD 3-clause https://github.com/sukso96100/amazfit-bip-kr
+* ttf2bmp.py - MIT License https://github.com/sukso96100/amazfit-bip-kr
 * Bm437_IBM_PS2thin4.FON - CC-BY-SA 4.0 https://int10h.org/oldschool-pc-fonts/
 * 04GZN16X.FNT - GNU GPL v2 http://dos.minashiro.net/freedosvd.html
